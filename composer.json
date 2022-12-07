@@ -1,0 +1,17 @@
+{
+    "name": "creativestyle/magesuite-product-visibility-monitoring",
+    "description": "This extension will monitor the amount of products in categories on frontend",
+    "homepage": "https://creativestyle.de",
+    "license": "OSL-3.0",
+    "require": {
+        "php": ">= 5.6"
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "MageSuite\\ProductVisibilityMonitoring": ""
+        }
+    }
+}

@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="category_products_notification_log" resource="default" engine="innodb"
+           comment="CategoryProductsNotificationLog">
+        <column xsi:type="int" name="notification_id" padding="10" unsigned="true"
+                nullable="false" identity="true" comment="Category Products Notification Log Id Column"/>
+        <column xsi:type="int" name="category_id" padding="10" unsigned="true" nullable="false" identity="false"
+                comment="Category Id Column"/>
+        <column xsi:type="smallint" name="store_id" unsigned="true" nullable="false" identity="false"
+                comment="Store ID"/>
+        <column xsi:type="int" name="collector_id" padding="10" unsigned="true" nullable="false"/>
+        <column xsi:type="timestamp" name="created_at" nullable="false" default="CURRENT_TIMESTAMP"/>
+        <index referenceId="CATEGORY_PRODUCTS_NOTIFICATION_LOG_NOTIFICATION_ID" indexType="btree">
+            <column name="notification_id"/>
+        </index>
+        <index referenceId="CATEGORY_PRODUCTS_NOTIFICATION_LOG_CATEGORY_ID" indexType="btree">
+            <column name="category_id"/>
+        </index>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="notification_id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="CATEGORY_PRODUCTS_NOTIFICATION_LOG_STORE_ID_STORE_STORE_ID" table="category_products_notification_log"
+                    column="store_id" referenceTable="store" referenceColumn="store_id" onDelete="CASCADE"/>
+        <constraint xsi:type="foreign" referenceId="CATEGORY_PRODUCTS_NOTIFICATION_LOG_CATEGORY_ID_CATALOG_CATEGORY_ENTITY_ENTITY_ID"
+                    table="category_products_log" column="category_id"
+                    referenceTable="catalog_category_entity" referenceColumn="entity_id" onDelete="CASCADE"/>
+        <constraint xsi:type="foreign" referenceId="CATEGORY_PRODUCTS_NOTIFICATION_LOG_COLLECTOR_ID_NOTIFICATION_DASHBOARD_COLLECTOR_ID" table="category_products_notification_log"
+                    column="collector_id" referenceTable="notification_dashboard_collector" referenceColumn="id"
+                    onDelete="CASCADE"/>
+    </table>
+    <table name="category_products_log" resource="default" engine="innodb" comment="CategoryProductsLog">
+        <column xsi:type="int" name="log_id" padding="10" unsigned="true" nullable="false"
+                identity="true" comment="Category Products Log Id Column"/>
+        <column xsi:type="int" name="category_id" padding="10" unsigned="true" nullable="false" identity="false"
+                comment="Category Id Column"/>
+        <column xsi:type="smallint" name="store_id" unsigned="true" nullable="false" identity="false"
+                comment="Store ID"/>
+        <column xsi:type="int" name="number_of_products" padding="10" unsigned="true" nullable="false" identity="false"
+                comment="Number Of Products Column"/>
+        <column xsi:type="timestamp" name="created_at" nullable="false" default="CURRENT_TIMESTAMP"/>
+        <index referenceId="CATEGORY_PRODUCTS_LOG_LOG_ID" indexType="btree">
+            <column name="log_id"/>
+        </index>
+        <index referenceId="CATEGORY_PRODUCTS_LOG_CATEGORY_ID" indexType="btree">
+            <column name="category_id"/>
+        </index>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="log_id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="CATEGORY_PRODUCTS_LOG_STORE_ID_STORE_STORE_ID" table="category_products_log"
+                    column="store_id" referenceTable="store" referenceColumn="store_id" onDelete="CASCADE"/>
+        <constraint xsi:type="foreign" referenceId="CATEGORY_PRODUCTS_LOG_CATEGORY_ID_CATALOG_CATEGORY_ENTITY_ENTITY_ID"
+                    table="category_products_log" column="category_id"
+                    referenceTable="catalog_category_entity" referenceColumn="entity_id" onDelete="CASCADE"/>
+    </table>
+    <table name="category_products_queue_log" resource="default" engine="innodb" comment="CategoryProductsQueueLog">
+        <column xsi:type="int" name="log_id" padding="10" unsigned="true" nullable="false"
+                identity="true" comment="Category Products Queue Log Id Column"/>
+        <column xsi:type="int" name="category_id" padding="10" unsigned="true" nullable="false" identity="false"
+                comment="Category Id Column"/>
+        <column xsi:type="smallint" name="store_id" unsigned="true" nullable="false" identity="false"
+                comment="Store ID"/>
+        <column xsi:type="timestamp" name="created_at" nullable="false" default="CURRENT_TIMESTAMP"/>
+        <index referenceId="CATEGORY_PRODUCTS_QUEUE_LOG_LOG_ID" indexType="btree">
+            <column name="log_id"/>
+        </index>
+        <index referenceId="CATEGORY_PRODUCTS_QUEUE_LOG_CATEGORY_ID" indexType="btree">
+            <column name="category_id"/>
+        </index>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="log_id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="CATEGORY_PRODUCTS_QUEUE_LOG_STORE_ID_STORE_STORE_ID" table="category_products_queue_log"
+                    column="store_id" referenceTable="store" referenceColumn="store_id" onDelete="CASCADE"/>
+        <constraint xsi:type="foreign" referenceId="CATEGORY_PRODUCTS_QUEUE_LOG_CATEGORY_ID_CATALOG_CATEGORY_ENTITY_ENTITY_ID"
+                    table="category_products_queue_log" column="category_id"
+                    referenceTable="catalog_category_entity" referenceColumn="entity_id" onDelete="CASCADE"/>
+    </table>
+</schema>

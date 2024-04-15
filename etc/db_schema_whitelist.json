@@ -1,0 +1,49 @@
+{
+    "category_products_log": {
+        "column": {
+            "log_id": true,
+            "category_id": true,
+            "number_of_products": true,
+            "created_at": true
+        },
+        "index": {
+            "CATEGORY_PRODUCTS_LOG_LOG_ID": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "CTGR_PRDS_LOG_CTGR_ID_CAT_CTGR_ENTT_ENTT_ID": true
+        }
+    },
+    "category_products_notification_log": {
+        "column": {
+            "category_products_notification_log_id": true,
+            "notification_id": true,
+            "category_id": true,
+            "created_at": true,
+            "collector_id": true
+        },
+        "index": {
+            "CATEGORY_PRODUCTS_NOTIFICATION_LOG_CATEGORY_PRODUCTS_NOTIFICATION_LOG_ID": true,
+            "CATEGORY_PRODUCTS_NOTIFICATION_LOG_NOTIFICATION_ID": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "CTGR_PRDS_NTFC_LOG_CTGR_ID_CAT_CTGR_ENTT_ENTT_ID": true,
+            "CTGR_PRDS_NTFC_LOG_COLLECTOR_ID_NTFC_DASHBOARD_COLLECTOR_ID": true
+        }
+    },
+    "category_products_queue_log": {
+        "column": {
+            "log_id": true,
+            "category_id": true,
+            "created_at": true
+        },
+        "index": {
+            "CATEGORY_PRODUCTS_QUEUE_LOG_LOG_ID": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "CTGR_PRDS_QUEUE_LOG_CTGR_ID_CAT_CTGR_ENTT_ENTT_ID": true
+        }
+    }
+}

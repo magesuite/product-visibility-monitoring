@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="product_visibility_monitoring" translate="label" type="text" sortOrder="110" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Product Visibility Monitoring</label>
+            <tab>magesuite</tab>
+            <resource>MageSuite_NotificationDashboard::notification_dashboard</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1">
+                <label>General</label>
+                <comment>Feature is used for alerting store admins in case if any category has issues with displaying products.</comment>
+                <field id="is_enabled" translate="label" type="select" sortOrder="10" showInDefault="1" canRestore="1">
+                    <label>Is Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+            <group id="logs" translate="label" type="text" sortOrder="20" showInDefault="1">
+                <label>Data Logs</label>
+                <field id="is_enabled" translate="label" type="select" sortOrder="10" showInDefault="1" canRestore="1">
+                    <label>Is Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="min_interval_in_minutes" translate="label" type="text" sortOrder="20" showInDefault="1" canRestore="1">
+                    <label>Minimum Interval In Minutes Between Logs</label>
+                </field>
+                <field id="excluded_categories" translate="label" type="multiselect" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Categories excluded from products number logging</label>
+                    <source_model>MageSuite\ProductVisibilityMonitoring\Model\Config\Source\Categories</source_model>
+                </field>
+            </group>
+            <group id="notifications" translate="label" type="text" sortOrder="30" showInDefault="1">
+                <label>Notifications</label>
+                <field id="is_enabled" translate="label" type="select" sortOrder="10" showInDefault="1" canRestore="1">
+                    <label>Is Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="min_interval_in_minutes" translate="label" type="text" sortOrder="20" showInDefault="1" canRestore="1">
+                    <label>Minimum Interval In Minutes Between Notifications</label>
+                </field>
+                <field id="excluded_categories" translate="label" type="multiselect" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Categories excluded from notifications</label>
+                    <source_model>MageSuite\ProductVisibilityMonitoring\Model\Config\Source\Categories</source_model>
+                </field>
+                <field id="categories_with_expected_zero_products" translate="label" type="multiselect" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Categories with expected zero products</label>
+                    <source_model>MageSuite\ProductVisibilityMonitoring\Model\Config\Source\Categories</source_model>
+                    <comment>Please select all categories which are expected to have 0 products to prevente false notifications.</comment>
+                </field>
+            </group>
+            <group id="queue" translate="label" type="text" sortOrder="40" showInDefault="1">
+                <label>Queue</label>
+                <field id="is_enabled" translate="label" type="select" sortOrder="10" showInDefault="1" canRestore="1">
+                    <label>Is Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="min_interval_in_minutes" translate="label" type="text" sortOrder="20" showInDefault="1" canRestore="1">
+                    <label>Minimum Interval In Minutes Between Adding The Same Category To Queue</label>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

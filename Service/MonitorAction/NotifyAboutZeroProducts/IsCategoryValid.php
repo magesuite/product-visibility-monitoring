@@ -20,7 +20,7 @@ class IsCategoryValid
      */
     public function execute(\MageSuite\ProductVisibilityMonitoring\Model\MonitorRequest $monitorRequest): bool
     {
-        $categoryId = $monitorRequest->getCategory()->getId();
+        $categoryId = $monitorRequest->getCategoryId();
 
         $storeId = $monitorRequest->getStoreId();
         $excludedCategories = $this->config->getExcludedCategories($storeId);

@@ -50,7 +50,7 @@ class NotifyAboutZeroProducts implements \MageSuite\ProductVisibilityMonitoring\
     {
         $monitorRequest = $notificationRequest->getMonitorRequest();
 
-        $categoryId = $monitorRequest->getCategory()->getId();
+        $categoryId = $monitorRequest->getCategoryId();
         $numberOfProducts = $monitorRequest->getNumberOfProducts();
 
         return sprintf('Category with ID %d has %d products.', $categoryId, $numberOfProducts);

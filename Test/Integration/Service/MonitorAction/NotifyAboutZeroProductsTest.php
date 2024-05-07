@@ -80,11 +80,8 @@ class NotifyAboutZeroProductsTest extends \PHPUnit\Framework\TestCase
 
     protected function prepareRequest(int $numberOfProducts): \MageSuite\ProductVisibilityMonitoring\Model\MonitorRequest
     {
-        $category = $this->createMock(\Magento\Catalog\Api\Data\CategoryInterface::class);
-        $category->method('getId')->willReturn(333);
-
         $request = $this->createMock(\MageSuite\ProductVisibilityMonitoring\Model\MonitorRequest::class);
-        $request->method('getCategory')->willReturn($category);
+        $request->method('getCategoryId')->willReturn(333);
         $request->method('getNumberOfProducts')->willReturn($numberOfProducts);
         $request->method('getStoreId')->willReturn(1);
 

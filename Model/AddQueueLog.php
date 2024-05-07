@@ -21,7 +21,7 @@ class AddQueueLog
     {
         $model = $this->modelFactory->create();
 
-        $categoryId = $monitorRequest->getCategory()->getId();
+        $categoryId = $monitorRequest->getCategoryId();
         $model->setCategoryId($categoryId);
 
         $storeId = $monitorRequest->getStoreId();

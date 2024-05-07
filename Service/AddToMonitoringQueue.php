@@ -53,7 +53,7 @@ class AddToMonitoringQueue implements \MageSuite\ProductVisibilityMonitoring\Api
     public function preparePayload(\MageSuite\ProductVisibilityMonitoring\Model\MonitorRequest $monitorRequest): array
     {
         return [
-            self::QUEUE_PAYLOAD_KEY_CATEGORY_ID => $monitorRequest->getCategory()->getId(),
+            self::QUEUE_PAYLOAD_KEY_CATEGORY_ID => $monitorRequest->getCategoryId(),
             self::QUEUE_PAYLOAD_KEY_NUMBER_OF_PRODUCTS => $monitorRequest->getNumberOfProducts(),
             self::QUEUE_PAYLOAD_KEY_STORE_ID => $monitorRequest->getStoreId(),
         ];

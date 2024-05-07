@@ -25,7 +25,7 @@ class AddNotificationsLog
         /** @var \MageSuite\ProductVisibilityMonitoring\Model\CategoryProductsNotificationLog $model */
         $model = $this->modelFactory->create();
 
-        $categoryId = (int)$notificationRequest->getMonitorRequest()->getCategory()->getId();
+        $categoryId = (int)$notificationRequest->getMonitorRequest()->getCategoryId();
         $model->setCategoryId($categoryId);
 
         $collectorId = $this->getCollectorId($notificationRequest);

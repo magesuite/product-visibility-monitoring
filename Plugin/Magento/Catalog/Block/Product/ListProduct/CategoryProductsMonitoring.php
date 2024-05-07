@@ -46,6 +46,11 @@ class CategoryProductsMonitoring
         \Magento\Eav\Model\Entity\Collection\AbstractCollection $collection
     ): ?\MageSuite\ProductVisibilityMonitoring\Model\MonitorRequest {
         $category = $this->registry->registry('current_category');
+
+        if (!$category) {
+            return null;
+        }
+
         $categoryId = $category->getId() ?? null;
 
         if (!$categoryId) {

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MageSuite\ProductVisibilityMonitoring\Test\Integration\Service\MonitorAction\CategoryZeroProducts;
+namespace MageSuite\ProductVisibilityMonitoring\Test\Integration\Service\MonitorAction;
 
 class NotifyAboutZeroProductsTest extends \PHPUnit\Framework\TestCase
 {

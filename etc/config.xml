@@ -8,7 +8,6 @@
             </general>
             <logs>
                 <is_enabled>1</is_enabled>
-                <min_interval_in_minutes>10</min_interval_in_minutes>
             </logs>
             <notifications>
                 <is_enabled>1</is_enabled>

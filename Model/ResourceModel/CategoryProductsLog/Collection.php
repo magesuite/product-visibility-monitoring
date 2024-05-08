@@ -25,9 +25,4 @@ class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\Ab
     {
         return $this->addFieldToFilter(\MageSuite\ProductVisibilityMonitoring\Model\CategoryProductsQueueLog::STORE_ID, $storeId);
     }
-
-    public function addCreatedAtThreshold(string $thresholdDatetime): self
-    {
-        return $this->addFieldToFilter(\MageSuite\ProductVisibilityMonitoring\Model\CategoryProductsQueueLog::CREATED_AT, ['gt' => $thresholdDatetime]);
-    }
 }

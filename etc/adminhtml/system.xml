@@ -20,9 +20,6 @@
                     <label>Is Enabled</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
-                <field id="min_interval_in_minutes" translate="label" type="text" sortOrder="20" showInDefault="1" canRestore="1">
-                    <label>Minimum Interval In Minutes Between Logs</label>
-                </field>
                 <field id="excluded_categories" translate="label" type="multiselect" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Categories excluded from products number logging</label>
                     <source_model>MageSuite\ProductVisibilityMonitoring\Model\Config\Source\Categories</source_model>

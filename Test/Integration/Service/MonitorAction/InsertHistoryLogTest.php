@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MageSuite\ProductVisibilityMonitoring\Test\Integration\Service\MonitorAction\InsertHistoryLog;
+namespace MageSuite\ProductVisibilityMonitoring\Test\Integration\Service\MonitorAction;
 
 class InsertHistoryLogTest extends \PHPUnit\Framework\TestCase
 {
@@ -16,26 +16,9 @@ class InsertHistoryLogTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @magentoConfigFixture default/product_visibility_monitoring/logs/min_interval_in_minutes 5
      * @magentoDataFixture Magento/Catalog/_files/category.php
      */
-    public function testExecuteWithInterval()
-    {
-        $service = $this->objectManager->create(
-            \MageSuite\ProductVisibilityMonitoring\Service\MonitorAction\InsertHistoryLog::class
-        );
-
-        $monitorRequest = $this->getMonitorRequest(5);
-
-        $this->assertTrue($service->execute($monitorRequest));
-        $this->assertFalse($service->execute($monitorRequest));
-    }
-
-    /**
-     * @magentoConfigFixture default/product_visibility_monitoring/logs/min_interval_in_minutes 5
-     * @magentoDataFixture Magento/Catalog/_files/category.php
-     */
-    public function testExecuteWithIntervalAndDifferentNumberOfProducts()
+    public function testExecuteWithDifferentNumberOfProducts()
     {
         $service = $this->objectManager->create(
             \MageSuite\ProductVisibilityMonitoring\Service\MonitorAction\InsertHistoryLog::class
@@ -49,10 +32,9 @@ class InsertHistoryLogTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @magentoConfigFixture default/product_visibility_monitoring/logs/min_interval_in_minutes 0
      * @magentoDataFixture Magento/Catalog/_files/category.php
      */
-    public function testExecuteWithoutInterval()
+    public function testExecuteWithTheSameNumberOfProducts()
     {
         $service = $this->objectManager->create(
             \MageSuite\ProductVisibilityMonitoring\Service\MonitorAction\InsertHistoryLog::class
@@ -61,7 +43,7 @@ class InsertHistoryLogTest extends \PHPUnit\Framework\TestCase
         $monitorRequest = $this->getMonitorRequest(5);
 
         $this->assertTrue($service->execute($monitorRequest));
-        $this->assertTrue($service->execute($monitorRequest));
+        $this->assertFalse($service->execute($monitorRequest));
     }
 
     protected function getMonitorRequest(int $numberOfProducts): \MageSuite\ProductVisibilityMonitoring\Model\MonitorRequest

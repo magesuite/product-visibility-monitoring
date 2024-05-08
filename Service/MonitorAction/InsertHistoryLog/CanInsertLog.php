@@ -31,20 +31,11 @@ class CanInsertLog
             return false;
         }
 
-        $interval = $this->logsConfig->getMinIntervalInMinutes();
-
-        if (!$interval) {
-            return true;
-        }
-
         $collection = $this->collectionFactory->create();
         $collection->addCategoryFilter($categoryId);
 
         $storeId = $monitorRequest->getStoreId();
         $collection->addStoreFilter($storeId);
-
-        $thresholdDatetime = $this->thresholdDatetime->get($interval);
-        $collection->addCreatedAtThreshold($thresholdDatetime);
 
         $collection->setOrder(\MageSuite\ProductVisibilityMonitoring\Model\CategoryProductsLog::CREATED_AT);
 

@@ -21,7 +21,7 @@ class NotifyAboutZeroProductsTest extends \PHPUnit\Framework\TestCase
     {
         $request = $this->prepareRequest(0);
 
-        $this->assertFalse($this->service->execute($request));
+        $this->assertTrue($this->service->execute($request));
     }
 
     /**
@@ -32,7 +32,7 @@ class NotifyAboutZeroProductsTest extends \PHPUnit\Framework\TestCase
     {
         $request = $this->prepareRequest(0);
 
-        $this->assertTrue($this->service->execute($request));
+        $this->assertFalse($this->service->execute($request));
     }
 
     /**
@@ -42,7 +42,7 @@ class NotifyAboutZeroProductsTest extends \PHPUnit\Framework\TestCase
     {
         $request = $this->prepareRequest(5);
 
-        $this->assertTrue($this->service->execute($request));
+        $this->assertFalse($this->service->execute($request));
     }
 
     /**
@@ -53,7 +53,7 @@ class NotifyAboutZeroProductsTest extends \PHPUnit\Framework\TestCase
     {
         $request = $this->prepareRequest(5);
 
-        $this->assertFalse($this->service->execute($request));
+        $this->assertTrue($this->service->execute($request));
     }
 
     /**
@@ -64,7 +64,7 @@ class NotifyAboutZeroProductsTest extends \PHPUnit\Framework\TestCase
     {
         $request = $this->prepareRequest(5);
 
-        $this->assertTrue($this->service->execute($request));
+        $this->assertFalse($this->service->execute($request));
     }
 
     /**
@@ -75,7 +75,7 @@ class NotifyAboutZeroProductsTest extends \PHPUnit\Framework\TestCase
     {
         $request = $this->prepareRequest(0);
 
-        $this->assertTrue($this->service->execute($request));
+        $this->assertFalse($this->service->execute($request));
     }
 
     protected function prepareRequest(int $numberOfProducts): \MageSuite\ProductVisibilityMonitoring\Model\MonitorRequest

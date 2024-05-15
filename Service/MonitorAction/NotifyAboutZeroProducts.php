@@ -30,7 +30,7 @@ class NotifyAboutZeroProducts implements \MageSuite\ProductVisibilityMonitoring\
 
     public function execute(\MageSuite\ProductVisibilityMonitoring\Model\MonitorRequest $monitorRequest): bool
     {
-        if (!$this->isCategoryValid->execute($monitorRequest)) {
+        if ($this->isCategoryValid->execute($monitorRequest)) {
             return false;
         }
 

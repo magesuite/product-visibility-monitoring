@@ -11,11 +11,11 @@
             </logs>
             <notifications>
                 <is_enabled>1</is_enabled>
-                <min_interval_in_minutes>15</min_interval_in_minutes>
+                <min_interval_in_minutes>10</min_interval_in_minutes>
             </notifications>
             <queue>
                 <is_enabled>1</is_enabled>
-                <min_interval_in_minutes>3</min_interval_in_minutes>
+                <min_interval_in_minutes>1</min_interval_in_minutes>
             </queue>
         </product_visibility_monitoring>
     </default>

@@ -23,6 +23,7 @@
                 <field id="excluded_categories" translate="label" type="multiselect" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Categories excluded from products number logging</label>
                     <source_model>MageSuite\ProductVisibilityMonitoring\Model\Config\Source\Categories</source_model>
+                    <can_be_empty>1</can_be_empty>
                 </field>
             </group>
             <group id="notifications" translate="label" type="text" sortOrder="30" showInDefault="1">
@@ -37,11 +38,13 @@
                 <field id="excluded_categories" translate="label" type="multiselect" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Categories excluded from notifications</label>
                     <source_model>MageSuite\ProductVisibilityMonitoring\Model\Config\Source\Categories</source_model>
+                    <can_be_empty>1</can_be_empty>
                 </field>
                 <field id="categories_with_expected_zero_products" translate="label" type="multiselect" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Categories with expected zero products</label>
                     <source_model>MageSuite\ProductVisibilityMonitoring\Model\Config\Source\Categories</source_model>
                     <comment>Please select all categories which are expected to have 0 products to prevente false notifications.</comment>
+                    <can_be_empty>1</can_be_empty>
                 </field>
             </group>
             <group id="queue" translate="label" type="text" sortOrder="40" showInDefault="1">

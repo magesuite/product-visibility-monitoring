@@ -6,21 +6,13 @@ namespace MageSuite\ProductVisibilityMonitoring\Plugin\Magento\Catalog\Block\Pro
 
 class CategoryProductsMonitoring
 {
-    protected \MageSuite\ProductVisibilityMonitoring\Api\AddToMonitoringQueueInterface $addToMonitoringQueue;
-    protected \MageSuite\ProductVisibilityMonitoring\Model\MonitorRequestFactory $monitorRequestFactory;
-    protected \Magento\Framework\Registry $registry;
-
     protected bool $alreadyUsed = false;
 
     public function __construct(
-        \MageSuite\ProductVisibilityMonitoring\Api\AddToMonitoringQueueInterface $addToMonitoringQueue,
-        \MageSuite\ProductVisibilityMonitoring\Model\MonitorRequestFactory $monitorRequestFactory,
-        \Magento\Framework\Registry $registry
-    ) {
-        $this->addToMonitoringQueue = $addToMonitoringQueue;
-        $this->monitorRequestFactory = $monitorRequestFactory;
-        $this->registry = $registry;
-    }
+        protected \MageSuite\ProductVisibilityMonitoring\Api\AddToMonitoringQueueInterface $addToMonitoringQueue,
+        protected \MageSuite\ProductVisibilityMonitoring\Model\MonitorRequestFactory $monitorRequestFactory,
+        protected \Magento\Framework\Registry $registry,
+    ) {}
 
     public function afterGetLoadedProductCollection(
         \Magento\Catalog\Block\Product\ListProduct $subject,

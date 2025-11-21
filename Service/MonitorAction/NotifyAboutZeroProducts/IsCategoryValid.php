@@ -6,9 +6,13 @@ namespace MageSuite\ProductVisibilityMonitoring\Service\MonitorAction\NotifyAbou
 
 class IsCategoryValid
 {
+    protected \MageSuite\ProductVisibilityMonitoring\Helper\Configuration\Notifications $config;
+
     public function __construct(
-        protected \MageSuite\ProductVisibilityMonitoring\Helper\Configuration\Notifications $config,
-    ) {}
+        \MageSuite\ProductVisibilityMonitoring\Helper\Configuration\Notifications $config,
+    ) {
+        $this->config = $config;
+    }
 
     /**
      * Verify if categories with expected non-zero number of products actually has any products.

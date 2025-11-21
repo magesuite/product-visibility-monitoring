@@ -6,10 +6,16 @@ namespace MageSuite\ProductVisibilityMonitoring\Model;
 
 class AddQueueLog
 {
+    protected \MageSuite\ProductVisibilityMonitoring\Api\CategoryProductsQueueLogRepositoryInterface $queueLogRepository;
+    protected \MageSuite\ProductVisibilityMonitoring\Model\CategoryProductsQueueLogFactory $modelFactory;
+
     public function __construct(
-        protected \MageSuite\ProductVisibilityMonitoring\Api\CategoryProductsQueueLogRepositoryInterface $queueLogRepository,
-        protected \MageSuite\ProductVisibilityMonitoring\Model\CategoryProductsQueueLogFactory $modelFactory,
-    ) {}
+        \MageSuite\ProductVisibilityMonitoring\Api\CategoryProductsQueueLogRepositoryInterface $queueLogRepository,
+        \MageSuite\ProductVisibilityMonitoring\Model\CategoryProductsQueueLogFactory $modelFactory,
+    ) {
+        $this->queueLogRepository = $queueLogRepository;
+        $this->modelFactory = $modelFactory;
+    }
 
     public function execute(MonitorRequest $monitorRequest): void
     {

@@ -6,11 +6,19 @@ namespace MageSuite\ProductVisibilityMonitoring\Model;
 
 class AddNotificationsLog
 {
+    protected \MageSuite\NotificationDashboard\Api\CollectorRepositoryInterface $collectorRepository;
+    protected \MageSuite\ProductVisibilityMonitoring\Api\CategoryProductsNotificationLogRepositoryInterface $notificationLogRepository;
+    protected \MageSuite\ProductVisibilityMonitoring\Model\CategoryProductsNotificationLogFactory $modelFactory;
+
     public function __construct(
-        protected \MageSuite\NotificationDashboard\Api\CollectorRepositoryInterface $collectorRepository,
-        protected \MageSuite\ProductVisibilityMonitoring\Api\CategoryProductsNotificationLogRepositoryInterface $notificationLogRepository,
-        protected \MageSuite\ProductVisibilityMonitoring\Model\CategoryProductsNotificationLogFactory $modelFactory,
-    ) {}
+        \MageSuite\NotificationDashboard\Api\CollectorRepositoryInterface $collectorRepository,
+        \MageSuite\ProductVisibilityMonitoring\Api\CategoryProductsNotificationLogRepositoryInterface $notificationLogRepository,
+        \MageSuite\ProductVisibilityMonitoring\Model\CategoryProductsNotificationLogFactory $modelFactory,
+    ) {
+        $this->collectorRepository = $collectorRepository;
+        $this->notificationLogRepository = $notificationLogRepository;
+        $this->modelFactory = $modelFactory;
+    }
 
     public function execute(\MageSuite\ProductVisibilityMonitoring\Model\NotificationRequest $notificationRequest): void
     {

@@ -35,31 +35,12 @@
                 <field id="min_interval_in_minutes" translate="label" type="text" sortOrder="20" showInDefault="1" canRestore="1">
                     <label>Minimum Interval In Minutes Between Notifications</label>
                 </field>
-                <field id="threshold" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
-                    <label>Product number threshold in percent</label>
-                    <comment>
-                        <![CDATA[
-                            Notify if the number of products in category has dropped below defined percent of the number of products previously logged.<br>
-                            E.g. if set to 25% and average number of products is 100, notification will be sent when number of products drops below 75.
-                        ]]>
-                    </comment>
-                </field>
-                <field id="min_average_number" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
-                    <label>Minimum average number to detect drops</label>
-                    <comment>
-                        <![CDATA[
-                            Notify only if the average number of products previously logged is equal or higher than defined value.<br>
-                            E.g. if set to 10, notification will be sent only if the average number of products previously logged is equal or higher than 10.<br>
-                            This value should be set to at least 10 to prevent false notifications for categories with very low number of products.
-                        ]]>
-                    </comment>
-                </field>
-                <field id="excluded_categories" translate="label" type="multiselect" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                <field id="excluded_categories" translate="label" type="multiselect" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Categories excluded from notifications</label>
                     <source_model>MageSuite\ProductVisibilityMonitoring\Model\Config\Source\Categories</source_model>
                     <can_be_empty>1</can_be_empty>
                 </field>
-                <field id="categories_with_expected_zero_products" translate="label" type="multiselect" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                <field id="categories_with_expected_zero_products" translate="label" type="multiselect" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Categories with expected zero products</label>
                     <source_model>MageSuite\ProductVisibilityMonitoring\Model\Config\Source\Categories</source_model>
                     <comment>Please select all categories which are expected to have 0 products to prevente false notifications.</comment>

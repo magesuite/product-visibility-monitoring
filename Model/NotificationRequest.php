@@ -25,10 +25,9 @@ class NotificationRequest extends \Magento\Framework\DataObject
         return $this->setData(self::KEY_COLLECTOR_NAME, $collectorName);
     }
 
-    public function getCollectorName(): string
+    public function getCollectorName(): ?string
     {
-        $collectorName = $this->_getData(self::KEY_COLLECTOR_NAME);
-        return $collectorName ?? \MageSuite\ProductVisibilityMonitoring\Setup\Patch\Data\AddCategoryZeroProductsCollector::COLLECTOR_NAME;
+        return $this->_getData(self::KEY_COLLECTOR_NAME);
     }
 
     public function setMessage(string $message): self

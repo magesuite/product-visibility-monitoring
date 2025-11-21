@@ -6,11 +6,19 @@ namespace MageSuite\ProductVisibilityMonitoring\Service;
 
 class MonitoringQueueHandler implements \MageSuite\Queue\Api\Queue\HandlerInterface
 {
+    protected \MageSuite\ProductVisibilityMonitoring\Api\MonitorInterface $monitor;
+    protected \Magento\Catalog\Api\CategoryRepositoryInterface $categoryRepository;
+    protected \MageSuite\ProductVisibilityMonitoring\Model\MonitorRequestFactory $monitorRequestFactory;
+
     public function __construct(
-        protected \MageSuite\ProductVisibilityMonitoring\Api\MonitorInterface $monitor,
-        protected \MageSuite\ProductVisibilityMonitoring\Model\MonitorRequestFactory $monitorRequestFactory,
-        protected \Magento\Catalog\Api\CategoryRepositoryInterface $categoryRepository,
-    ) {}
+        \MageSuite\ProductVisibilityMonitoring\Api\MonitorInterface $monitor,
+        \MageSuite\ProductVisibilityMonitoring\Model\MonitorRequestFactory $monitorRequestFactory,
+        \Magento\Catalog\Api\CategoryRepositoryInterface $categoryRepository,
+    ) {
+        $this->monitor = $monitor;
+        $this->categoryRepository = $categoryRepository;
+        $this->monitorRequestFactory = $monitorRequestFactory;
+    }
 
     /**
      * @param array $data

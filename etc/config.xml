@@ -12,8 +12,6 @@
             <notifications>
                 <is_enabled>1</is_enabled>
                 <min_interval_in_minutes>10</min_interval_in_minutes>
-                <threshold>25</threshold>
-                <min_average_number>20</min_average_number>
             </notifications>
             <queue>
                 <is_enabled>1</is_enabled>

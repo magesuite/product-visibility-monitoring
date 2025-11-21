@@ -4,14 +4,24 @@ declare(strict_types=1);
 
 namespace MageSuite\ProductVisibilityMonitoring\Service\MonitorAction;
 
-class NotifyAboutZeroProducts implements ActionInterface
+class NotifyAboutZeroProducts implements \MageSuite\ProductVisibilityMonitoring\Service\MonitorAction\ActionInterface
 {
+    protected \MageSuite\ProductVisibilityMonitoring\Api\NotificationInterface $notification;
+    protected \MageSuite\ProductVisibilityMonitoring\Model\NotificationRequestFactory $notificationRequestFactory;
+    protected \MageSuite\ProductVisibilityMonitoring\Service\MonitorAction\NotifyAboutZeroProducts\IsCategoryValid $isCategoryValid;
+    protected bool $isEnabled;
+
     public function __construct(
-        protected \MageSuite\ProductVisibilityMonitoring\Api\NotificationInterface $notification,
-        protected \MageSuite\ProductVisibilityMonitoring\Model\NotificationRequestFactory $notificationRequestFactory,
-        protected \MageSuite\ProductVisibilityMonitoring\Service\MonitorAction\NotifyAboutZeroProducts\IsCategoryValid $isCategoryValid,
-        protected bool $isEnabled = true
-    ) {}
+        \MageSuite\ProductVisibilityMonitoring\Api\NotificationInterface $notification,
+        \MageSuite\ProductVisibilityMonitoring\Model\NotificationRequestFactory $notificationRequestFactory,
+        \MageSuite\ProductVisibilityMonitoring\Service\MonitorAction\NotifyAboutZeroProducts\IsCategoryValid $isCategoryValid,
+        bool $isEnabled = true
+    ) {
+        $this->isCategoryValid = $isCategoryValid;
+        $this->notification = $notification;
+        $this->notificationRequestFactory = $notificationRequestFactory;
+        $this->isEnabled = $isEnabled;
+    }
 
     public function isEnabled(): bool
     {
@@ -26,6 +36,7 @@ class NotifyAboutZeroProducts implements ActionInterface
 
         $notificationRequest = $this->notificationRequestFactory->create();
         $notificationRequest->setMonitorRequest($monitorRequest);
+        $notificationRequest->setCollectorName(\MageSuite\ProductVisibilityMonitoring\Setup\Patch\Data\AddCategoryZeroProductsCollector::COLLECTOR_NAME);
 
         $message = $this->prepareNotificationMessage($notificationRequest);
         $notificationRequest->setMessage($message);

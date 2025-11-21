@@ -8,8 +8,6 @@ class MonitorRequest extends \Magento\Framework\DataObject
 {
     public const KEY_CATEGORY = 'category';
     public const KEY_NUMBER_OF_PRODUCTS = 'number_of_products';
-    public const KEY_AVERAGE_NUMBER_OF_PRODUCTS = 'average_number_of_products';
-    public const KEY_DROP_PERCENTAGE = 'drop_percentage';
     public const KEY_STORE_ID = 'store_id';
 
     public function setCategory(\Magento\Catalog\Api\Data\CategoryInterface $category): self

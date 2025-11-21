@@ -6,9 +6,13 @@ namespace MageSuite\ProductVisibilityMonitoring\Helper\Configuration;
 
 trait General
 {
+    protected \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig;
+
     public function __construct(
-        protected \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig
-    ) {}
+        \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig
+    ) {
+        $this->scopeConfig = $scopeConfig;
+    }
 
     public function isEnabled(): bool
     {

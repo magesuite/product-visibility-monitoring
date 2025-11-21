@@ -6,9 +6,13 @@ namespace MageSuite\ProductVisibilityMonitoring\Model;
 
 class CountProductsInCategory implements \MageSuite\ProductVisibilityMonitoring\Api\CountProductsInCategoryInterface
 {
+    protected \Magento\Catalog\Model\ResourceModel\Product\CollectionFactory $collectionFactory;
+
     public function __construct(
-        protected \Magento\Catalog\Model\ResourceModel\Product\CollectionFactory $collectionFactory
-    ) {}
+        \Magento\Catalog\Model\ResourceModel\Product\CollectionFactory $collectionFactory
+    ) {
+        $this->collectionFactory = $collectionFactory;
+    }
 
     public function execute(\Magento\Catalog\Api\Data\CategoryInterface $category): int
     {

@@ -6,13 +6,9 @@ namespace MageSuite\ProductVisibilityMonitoring\Model;
 
 class CategoryProductsQueueLogRepository implements \MageSuite\ProductVisibilityMonitoring\Api\CategoryProductsQueueLogRepositoryInterface
 {
-    protected \MageSuite\ProductVisibilityMonitoring\Model\ResourceModel\CategoryProductsQueueLog $resource;
-
     public function __construct(
-        \MageSuite\ProductVisibilityMonitoring\Model\ResourceModel\CategoryProductsQueueLog $resource,
-    ) {
-        $this->resource = $resource;
-    }
+        protected \MageSuite\ProductVisibilityMonitoring\Model\ResourceModel\CategoryProductsQueueLog $resource,
+    ) {}
 
     /**
      * @throws \Magento\Framework\Exception\AlreadyExistsException

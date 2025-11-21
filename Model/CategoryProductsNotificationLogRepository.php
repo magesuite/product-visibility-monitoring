@@ -6,13 +6,9 @@ namespace MageSuite\ProductVisibilityMonitoring\Model;
 
 class CategoryProductsNotificationLogRepository implements \MageSuite\ProductVisibilityMonitoring\Api\CategoryProductsNotificationLogRepositoryInterface
 {
-    protected \MageSuite\ProductVisibilityMonitoring\Model\ResourceModel\CategoryProductsNotificationLog $resource;
-
     public function __construct(
-        \MageSuite\ProductVisibilityMonitoring\Model\ResourceModel\CategoryProductsNotificationLog $resource
-    ) {
-        $this->resource = $resource;
-    }
+        protected \MageSuite\ProductVisibilityMonitoring\Model\ResourceModel\CategoryProductsNotificationLog $resource
+    ) {}
 
     /**
      * @throws \Magento\Framework\Exception\AlreadyExistsException

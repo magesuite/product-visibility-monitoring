@@ -6,18 +6,10 @@ namespace MageSuite\ProductVisibilityMonitoring\Service;
 
 class Monitor implements \MageSuite\ProductVisibilityMonitoring\Api\MonitorInterface
 {
-    protected \Psr\Log\LoggerInterface $logger;
-
-    /** @var \MageSuite\ProductVisibilityMonitoring\Service\MonitorAction\ActionInterface[] */
-    protected array $monitorActions;
-
     public function __construct(
-        \Psr\Log\LoggerInterface $logger,
-        array $monitorActions
-    ) {
-        $this->monitorActions = $monitorActions;
-        $this->logger = $logger;
-    }
+        protected \Psr\Log\LoggerInterface $logger,
+        protected array $monitorActions,
+    ) {}
 
     public function run(\MageSuite\ProductVisibilityMonitoring\Model\MonitorRequest $monitorRequest): void
     {

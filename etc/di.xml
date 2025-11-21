@@ -25,6 +25,7 @@
             <argument name="monitorActions" xsi:type="array">
                 <item name="insert_history_log" xsi:type="object">MageSuite\ProductVisibilityMonitoring\Service\MonitorAction\InsertHistoryLog</item>
                 <item name="notify_about_zero_products" xsi:type="object">MageSuite\ProductVisibilityMonitoring\Service\MonitorAction\NotifyAboutZeroProducts</item>
+                <item name="notify_about_product_number_drops" xsi:type="object">MageSuite\ProductVisibilityMonitoring\Service\MonitorAction\DropNotifier</item>
             </argument>
         </arguments>
     </type>

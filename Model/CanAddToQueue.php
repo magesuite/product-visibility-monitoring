@@ -6,25 +6,13 @@ namespace MageSuite\ProductVisibilityMonitoring\Model;
 
 class CanAddToQueue
 {
-    protected \Magento\Framework\App\RequestInterface $request;
-    protected \MageSuite\ProductVisibilityMonitoring\Model\ResourceModel\CategoryProductsQueueLog\CollectionFactory $collectionFactory;
-    protected \MageSuite\ProductVisibilityMonitoring\Helper\Configuration\Queue $queueConfig;
-    protected \MageSuite\ProductVisibilityMonitoring\Model\ThresholdDatetime $thresholdDatetime;
-    protected array $allowedRequestParams;
-
     public function __construct(
-        \Magento\Framework\App\RequestInterface $request,
-        \MageSuite\ProductVisibilityMonitoring\Helper\Configuration\Queue $queueConfig,
-        \MageSuite\ProductVisibilityMonitoring\Model\ResourceModel\CategoryProductsQueueLog\CollectionFactory $collectionFactory,
-        \MageSuite\ProductVisibilityMonitoring\Model\ThresholdDatetime $thresholdDatetime,
-        array $allowedRequestParams = []
-    ) {
-        $this->request = $request;
-        $this->collectionFactory = $collectionFactory;
-        $this->queueConfig = $queueConfig;
-        $this->thresholdDatetime = $thresholdDatetime;
-        $this->allowedRequestParams = $allowedRequestParams;
-    }
+        protected \Magento\Framework\App\RequestInterface $request,
+        protected \MageSuite\ProductVisibilityMonitoring\Helper\Configuration\Queue $queueConfig,
+        protected \MageSuite\ProductVisibilityMonitoring\Model\ResourceModel\CategoryProductsQueueLog\CollectionFactory $collectionFactory,
+        protected \MageSuite\ProductVisibilityMonitoring\Model\ThresholdDatetime $thresholdDatetime,
+        protected array $allowedRequestParams = []
+    ) {}
 
     public function execute(\MageSuite\ProductVisibilityMonitoring\Model\MonitorRequest $monitorRequest): bool
     {

@@ -6,22 +6,12 @@ namespace MageSuite\ProductVisibilityMonitoring\Service\MonitorAction;
 
 class InsertHistoryLog implements ActionInterface
 {
-    protected \MageSuite\ProductVisibilityMonitoring\Api\CategoryProductsLogRepositoryInterface $logRepository;
-    protected \MageSuite\ProductVisibilityMonitoring\Model\CategoryProductsLogFactory $logFactory;
-    protected \MageSuite\ProductVisibilityMonitoring\Service\MonitorAction\InsertHistoryLog\CanInsertLog $canInsertLog;
-    protected bool $isEnabled;
-
     public function __construct(
-        \MageSuite\ProductVisibilityMonitoring\Api\CategoryProductsLogRepositoryInterface $logRepository,
-        \MageSuite\ProductVisibilityMonitoring\Model\CategoryProductsLogFactory $logFactory,
-        \MageSuite\ProductVisibilityMonitoring\Service\MonitorAction\InsertHistoryLog\CanInsertLog $canInsertLog,
-        bool $isEnabled = true
-    ) {
-        $this->logRepository = $logRepository;
-        $this->logFactory = $logFactory;
-        $this->canInsertLog = $canInsertLog;
-        $this->isEnabled = $isEnabled;
-    }
+        protected \MageSuite\ProductVisibilityMonitoring\Api\CategoryProductsLogRepositoryInterface $logRepository,
+        protected \MageSuite\ProductVisibilityMonitoring\Model\CategoryProductsLogFactory $logFactory,
+        protected \MageSuite\ProductVisibilityMonitoring\Service\MonitorAction\InsertHistoryLog\CanInsertLog $canInsertLog,
+        protected bool $isEnabled = true
+    ) {}
 
     public function isEnabled(): bool
     {

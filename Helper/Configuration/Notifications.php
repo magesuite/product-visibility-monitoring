@@ -12,6 +12,8 @@ class Notifications
 
     public const XML_PATH_PRODUCT_VISIBILITY_MONITORING_NOTIFICATIONS_IS_ENABLED = 'product_visibility_monitoring/notifications/is_enabled';
     public const XML_PATH_PRODUCT_VISIBILITY_MONITORING_NOTIFICATIONS_MIN_INTERVAL = 'product_visibility_monitoring/notifications/min_interval_in_minutes';
+    public const XML_PATH_PRODUCT_VISIBILITY_MONITORING_NOTIFICATIONS_THRESHOLD = 'product_visibility_monitoring/notifications/threshold';
+    public const XML_PATH_PRODUCT_VISIBILITY_MONITORING_NOTIFICATIONS_MIN_AVERAGE_NUMBER = 'product_visibility_monitoring/notifications/min_average_number';
     public const XML_PATH_PRODUCT_VISIBILITY_MONITORING_NOTIFICATIONS_EXCLUDED_CATEGORIES = 'product_visibility_monitoring/notifications/excluded_categories';
     public const XML_PATH_PRODUCT_VISIBILITY_MONITORING_GENERAL_CATEGORIES_WITH_EXPECTED_ZERO_PRODUCTS = 'product_visibility_monitoring/notifications/categories_with_expected_zero_products';
 
@@ -20,9 +22,24 @@ class Notifications
         return $this->isGlobalEnabled() && $this->scopeConfig->isSetFlag(self::XML_PATH_PRODUCT_VISIBILITY_MONITORING_NOTIFICATIONS_IS_ENABLED);
     }
 
-    /**
-     * @return int - minimal interval between the same alerts
-     */
+    public function getThresholdPercent(?int $storeId = null): int
+    {
+        return (int)$this->scopeConfig->getValue(
+            self::XML_PATH_PRODUCT_VISIBILITY_MONITORING_NOTIFICATIONS_THRESHOLD,
+            \Magento\Store\Model\ScopeInterface::SCOPE_STORE,
+            $storeId
+        );
+    }
+
+    public function getMinAverageNumber(?int $storeId = null): int
+    {
+        return (int)$this->scopeConfig->getValue(
+            self::XML_PATH_PRODUCT_VISIBILITY_MONITORING_NOTIFICATIONS_MIN_AVERAGE_NUMBER,
+            \Magento\Store\Model\ScopeInterface::SCOPE_STORE,
+            $storeId
+        );
+    }
+
     public function getMinIntervalInMinutes(): int
     {
         return (int)$this->scopeConfig->getValue(self::XML_PATH_PRODUCT_VISIBILITY_MONITORING_NOTIFICATIONS_MIN_INTERVAL);

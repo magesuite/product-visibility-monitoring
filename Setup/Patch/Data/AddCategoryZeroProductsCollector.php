@@ -8,16 +8,10 @@ class AddCategoryZeroProductsCollector implements \Magento\Framework\Setup\Patch
 {
     public const COLLECTOR_NAME = 'Products In Categories';
 
-    protected \MageSuite\NotificationDashboard\Api\Data\CollectorInterfaceFactory $collectorFactory;
-    protected \MageSuite\NotificationDashboard\Api\CollectorRepositoryInterface $collectorRepository;
-
     public function __construct(
-        \MageSuite\NotificationDashboard\Api\Data\CollectorInterfaceFactory $collectorFactory,
-        \MageSuite\NotificationDashboard\Api\CollectorRepositoryInterface $collectorRepository
-    ) {
-        $this->collectorFactory = $collectorFactory;
-        $this->collectorRepository = $collectorRepository;
-    }
+        protected \MageSuite\NotificationDashboard\Api\Data\CollectorInterfaceFactory $collectorFactory,
+        protected \MageSuite\NotificationDashboard\Api\CollectorRepositoryInterface $collectorRepository
+    ) {}
 
     public function apply(): self
     {

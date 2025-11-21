@@ -6,12 +6,9 @@ namespace MageSuite\ProductVisibilityMonitoring\Model\Config\Source;
 
 class Categories implements \Magento\Framework\Data\OptionSourceInterface
 {
-    protected \Magento\Catalog\Model\ResourceModel\Category\CollectionFactory $collectionFactory;
-
-    public function __construct(\Magento\Catalog\Model\ResourceModel\Category\CollectionFactory $collectionFactory)
-    {
-        $this->collectionFactory = $collectionFactory;
-    }
+    public function __construct(
+        protected \Magento\Catalog\Model\ResourceModel\Category\CollectionFactory $collectionFactory,
+    ) {}
 
     public function toOptionArray(): array
     {

@@ -11,6 +11,7 @@ class MonitorRequest extends \Magento\Framework\DataObject
     public const KEY_AVERAGE_NUMBER_OF_PRODUCTS = 'average_number_of_products';
     public const KEY_DROP_PERCENTAGE = 'drop_percentage';
     public const KEY_STORE_ID = 'store_id';
+    public const KEY_COLLECTION = 'collection';
 
     public function setCategory(\Magento\Catalog\Api\Data\CategoryInterface $category): self
     {
@@ -47,5 +48,15 @@ class MonitorRequest extends \Magento\Framework\DataObject
     public function getStoreId(): ?int
     {
         return $this->_getData(self::KEY_STORE_ID);
+    }
+
+    public function setCollection(\Magento\Eav\Model\Entity\Collection\AbstractCollection $collection): self
+    {
+        return $this->setData(self::KEY_COLLECTION, $collection);
+    }
+
+    public function getCollection(): ?\Magento\Eav\Model\Entity\Collection\AbstractCollection
+    {
+        return $this->_getData(self::KEY_COLLECTION);
     }
 }

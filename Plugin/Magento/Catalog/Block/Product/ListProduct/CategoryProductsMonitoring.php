@@ -49,13 +49,10 @@ class CategoryProductsMonitoring
             return null;
         }
 
-        $numberOfProducts = $collection->getSize();
-        $storeId = $collection->getStoreId();
-
         $monitorRequest = $this->monitorRequestFactory->create();
         $monitorRequest->setCategory($category);
-        $monitorRequest->setNumberOfProducts($numberOfProducts);
-        $monitorRequest->setStoreId($storeId);
+        $monitorRequest->setCollection($collection);
+        $monitorRequest->setStoreId($collection->getStoreId());
 
         return $monitorRequest;
     }
